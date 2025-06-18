@@ -24,6 +24,9 @@
         <section class="hero">
             <div class="container">
                 <h1>Usman Tahir</h1>
+                <div class="profile-picture-container">
+    <img id="profilePicture" src="Me 1.jpg" alt="Profile Picture" class="profile-picture">
+</div>
                 <p class="subtitle">Web Developer</p>
                 <p class="location">📍 Mirpur Azad Kashmir, Pakistan</p>
                 <a href="#contact" class="cta-button">Get In Touch</a>
@@ -131,6 +134,18 @@
     </footer>
 
     <script>
+        // Profile picture upload preview
+document.getElementById('uploadInput').addEventListener('change', function () {
+    const file = this.files[0];
+    if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profilePicture').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
